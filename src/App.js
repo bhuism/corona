@@ -1,26 +1,46 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Chart from "react-google-charts";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <>
+            <h3>Corona</h3>
+            <Chart
+                chartType="LineChart"
+                spreadSheetUrl="https://docs.google.com/spreadsheets/d/1SNQfSo6Ia8icq_YbXrjC4JO8p-Qlr1Dvqzfjgbrnpqk/edit?usp=sharing"
+                formatters={[
+                    {
+                        type: 'DateFormat',
+                        column: 1,
+                        options: {
+                            formatType: 'long',
+                        }
+                    },
+                ]}
+                options={{
+                    hAxis: {
+                        format: 'dd-MMM'
+                    },
+                    vAxis: {
+                        format: 'decimal',
+                    },
+                }}
+                chartPackages={['corechart', 'controls']}
+                controls={[
+                    {
+                        controlType: 'DateRangeFilter',
+                        options: {
+                            filterColumnLabel: 'datum',
+                            ui: {format: {pattern: 'dd-MMM'}},
+                        },
+                    },
+                ]}
+                width="100%"
+                height="600px"
+            />
+        </>
+    );
 }
 
 export default App;
