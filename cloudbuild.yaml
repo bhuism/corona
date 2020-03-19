@@ -1,6 +1,6 @@
 #build and deploy
 steps:
-  - name: 'node:12-alpine'
+  - name: 'eu.gcr.io/cloud-builders/npm'
     id: build
     args: ['install', 'run build']
   - name: 'eu.gcr.io/cloud-builders/docker'
