@@ -1,0 +1,15 @@
+#build and deploy
+steps:
+  - name: 'node:12-alpine'
+    id: build
+    args: ['install', 'run build']
+  - name: 'eu.gcr.io/cloud-builders/docker'
+    id: docker
+    args: ['build', '-t', 'gcr.io/badge-260212/corona:latest', '.']
+    images: ['eu.gcr.io/badge-260212/corona:latest']
+  - name: 'eu.gcr.io/cloud-builders/gcloud'
+    id: deploy
+    args: ['beta', 'run', 'deploy', 'badge', '--image', 'eu.gcr.io/badge-260212/corona:latest', '--region', 'europe-west1', '--platform', 'managed', '--concurrency', '80', '--max-instances', '10', '--memory', '512Mi', '--timeout', '30s', '--allow-unauthenticated', '--async']
+    waitFor:
+      - build
+
