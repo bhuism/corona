@@ -1,8 +1,6 @@
 #build and deploy
 steps:
   - name: node
-    args: ['install']
-  - name: node
     args: ['run', 'build']
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 'eu.gcr.io/badge-260212/corona', '.']
