@@ -1,13 +1,10 @@
 #build and deploy
 steps:
-  - name: 'gcr.io/cloud-builders/npm'
-    id: build
-    args: ['install', 'run build']
+  - name: node
+    args: ['install']
+  - name: node
+    args: ['run', 'build']
   - name: 'gcr.io/cloud-builders/docker'
-    id: docker
-    args: ['build', '-t', 'eu.gcr.io/badge-260212/corona:latest', '.']
+    args: ['build', '-t', 'eu.gcr.io/badge-260212/corona', '.']
   - name: 'gcr.io/cloud-builders/gcloud'
-    id: deploy
-    args: ['beta', 'run', 'deploy', 'badge', '--image', 'eu.gcr.io/badge-260212/corona:latest', '--region', 'europe-west1', '--platform', 'managed', '--concurrency', '80', '--max-instances', '10', '--memory', '512Mi', '--timeout', '30s', '--allow-unauthenticated', '--async']
-images:
-  - 'eu.gcr.io/badge-260212/corona:latest'
+    args: ['beta', 'run', 'deploy', 'badge', '--image', 'eu.gcr.io/badge-260212/corona:latest', '--region', 'europe-west4', '--platform', 'managed', '--concurrency', '80', '--max-instances', '10', '--memory', '128Mi', '--timeout', '30s', '--allow-unauthenticated', '--async']
