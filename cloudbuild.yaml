@@ -11,4 +11,4 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'eu.gcr.io/$PROJECT_ID/corona']
   - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['beta', 'run', 'deploy', 'corona', '--image', 'eu.gcr.io/badge-260212/corona:latest', '--region', 'europe-west4', '--platform', 'managed', '--concurrency', '80', '--max-instances', '10', '--memory', '128Mi', '--timeout', '30s', '--allow-unauthenticated', '--async']
+    args: ['run', 'deploy', 'corona', '--image', 'eu.gcr.io/badge-260212/corona:latest', '--region', 'europe-west4', '--platform', 'managed', '--concurrency', '80', '--max-instances', '10', '--memory', '128Mi', '--timeout', '30s', '--allow-unauthenticated', '--async']
