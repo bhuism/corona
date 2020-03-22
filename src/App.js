@@ -1,11 +1,38 @@
 import React from 'react';
-import './App.css';
-import Chart from "react-google-charts";
+    import Chart from "react-google-charts";
+
+const options = {
+    curveType: "function",
+    hAxis: {
+        format: 'dd-MMM',
+    },
+    vAxis: {
+        format: 'decimal',
+    },
+    title: 'Corona cijfers van het RIVM',
+    legend: { position: "bottom" },
+};
 
 function App() {
     return (
         <>
-            <h3>Corona van RIVM</h3>
+            <Chart
+                chartType="LineChart"
+                spreadSheetUrl="https://docs.google.com/spreadsheets/d/1SNQfSo6Ia8icq_YbXrjC4JO8p-Qlr1Dvqzfjgbrnpqk/edit?usp=sharing"
+                formatters={[
+                    {
+                        type: 'DateFormat',
+                        column: 1,
+                        options: {
+                            formatType: 'long',
+                        }
+                    },
+                ]}
+                options={options}
+                chartPackages={['corechart', 'controls']}
+                width="100%"
+                height="400px"
+            />
             <Chart
                 chartType="LineChart"
                 spreadSheetUrl="https://docs.google.com/spreadsheets/d/1SNQfSo6Ia8icq_YbXrjC4JO8p-Qlr1Dvqzfjgbrnpqk/edit?usp=sharing"
@@ -19,26 +46,22 @@ function App() {
                     },
                 ]}
                 options={{
+                    curveType: "function",
                     hAxis: {
                         format: 'dd-MMM'
                     },
                     vAxis: {
                         format: 'decimal',
+                        scaleType: 'log'
                     },
+                    title: 'Corona cijfers van het RIVM (logaritmisch)',
+                    legend: { position: "bottom" },
                 }}
                 chartPackages={['corechart', 'controls']}
-                controls={[
-                    {
-                        controlType: 'DateRangeFilter',
-                        options: {
-                            filterColumnLabel: 'datum',
-                            ui: {format: {pattern: 'dd-MMM'}},
-                        },
-                    },
-                ]}
                 width="100%"
-                height="600px"
+                height="400px"
             />
+            <a href='https://www.rivm.nl/nieuws/actuele-informatie-over-coronavirus'>bron RIVM</a>
         </>
     );
 }
