@@ -54,10 +54,36 @@ function App() {
                         format: 'decimal',
                         scaleType: 'log'
                     },
-                    title: 'Corona cijfers van het RIVM (logaritmisch)',
+                    title: 'Corona cijfers van het RIVM',
                     legend: { position: "bottom" },
                 }}
                 chartPackages={['corechart', 'controls']}
+                width="100%"
+                height="400px"
+            />
+            <Chart
+                chartType="LineChart"
+                spreadSheetUrl="https://docs.google.com/spreadsheets/d/1SNQfSo6Ia8icq_YbXrjC4JO8p-Qlr1Dvqzfjgbrnpqk/edit?usp=sharing"
+                spreadSheetQueryParameters={{
+                    headers: 1,
+                    query: 'SELECT D, C',
+                }}
+                options={{
+                    curveType: "function",
+                    hAxis: {
+                        format: 'decimal',
+                        scaleType: 'log',
+                        title: 'totaal'
+                    },
+                    vAxis: {
+                        format: 'decimal',
+                        scaleType: 'log',
+                        title: 'nieuw per dag'
+                    },
+                    title: 'Corona cijfers van het RIVM',
+                    legend: { position: "none" },
+                }}
+                chartPackages={['corechart']}
                 width="100%"
                 height="400px"
             />
