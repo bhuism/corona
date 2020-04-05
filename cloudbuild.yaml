@@ -1,9 +1,5 @@
 #build and deploy
 steps:
-  - name: alpine
-    env:
-      - 'REACT_APP_COMMIT_SHA=$COMMIT_SHA'
-    args: ['env']
   - name: node
     entrypoint: npm
     args: ['install']
