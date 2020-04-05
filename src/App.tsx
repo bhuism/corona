@@ -1,18 +1,6 @@
 import React from 'react';
-    import Chart from "react-google-charts";
+import Chart from "react-google-charts";
 import Badge from "./components/Badge";
-
-const options = {
-    curveType: "function",
-    hAxis: {
-        format: 'dd-MMM',
-    },
-    vAxis: {
-        format: 'decimal',
-    },
-    title: 'Corona cijfers van het RIVM',
-    legend: { position: "bottom" },
-};
 
 function App() {
     return (
@@ -29,7 +17,18 @@ function App() {
                         }
                     },
                 ]}
-                options={options}
+                options={{
+                    curveType: "function",
+                    hAxis: {
+                        format: 'dd-MMM',
+                    },
+                    vAxis: {
+                        format: 'decimal',
+                        title: 'aantal'
+                    },
+                    title: 'Corona cijfers van het RIVM',
+                    legend: {position: "bottom"},
+                }}
                 chartPackages={['corechart', 'controls']}
                 width="100%"
                 height="400px"
@@ -53,10 +52,11 @@ function App() {
                     },
                     vAxis: {
                         format: 'decimal',
-                        scaleType: 'log'
+                        scaleType: 'log',
+                        title: 'aantal'
                     },
                     title: 'Corona cijfers van het RIVM',
-                    legend: { position: "bottom" },
+                    legend: {position: "bottom"},
                 }}
                 chartPackages={['corechart', 'controls']}
                 width="100%"
@@ -82,9 +82,9 @@ function App() {
                         title: 'nieuw per dag'
                     },
                     title: 'Corona cijfers van het RIVM',
-                    legend: { position: "none" },
+                    legend: {position: "none"},
                 }}
-                chartPackages={['corechart']}
+                chartPackages={['corechart', 'controls']}
                 width="100%"
                 height="400px"
             />
