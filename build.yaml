@@ -1,0 +1,10 @@
+#build and deploy
+steps:
+  - name: node
+    entrypoint: npm
+    args: ['install']
+  - name: node
+    entrypoint: npm
+    env:
+      - 'REACT_APP_COMMIT_SHA=$COMMIT_SHA'
+    args: ['run', 'build']
