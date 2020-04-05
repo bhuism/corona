@@ -1,5 +1,6 @@
 import React from 'react';
     import Chart from "react-google-charts";
+import Badge from "./components/Badge";
 
 const options = {
     curveType: "function",
@@ -88,6 +89,9 @@ function App() {
                 height="400px"
             />
             <a href='https://www.rivm.nl/nieuws/actuele-informatie-over-coronavirus'>bron RIVM</a>
+            <p>
+                <Badge user={'bhuism'} repo={'corona'} ghash={process.env.REACT_APP_COMMIT_SHA}/>
+            </p>
         </>
     );
 }
