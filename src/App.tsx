@@ -13,28 +13,25 @@ function App() {
                     <Row>
                         <Chart
                             chartType="LineChart"
-                            loader={<div>Loading Chart</div>}
                             spreadSheetUrl="https://docs.google.com/spreadsheets/d/1SNQfSo6Ia8icq_YbXrjC4JO8p-Qlr1Dvqzfjgbrnpqk/edit?usp=sharing"
-                            formatters={[
-                                {
-                                    type: 'DateFormat',
-                                    column: 1,
-                                    options: {
-                                        formatType: 'long',
-                                    }
-                                },
-                            ]}
+                            spreadSheetQueryParameters={{
+                                headers: 1,
+                                query: 'SELECT D, C',
+                            }}
                             options={{
                                 curveType: "function",
                                 hAxis: {
-                                    format: 'dd-MMM',
+                                    format: 'decimal',
+                                    scaleType: 'log',
+                                    title: 'totaal'
                                 },
                                 vAxis: {
                                     format: 'decimal',
-                                    title: 'aantal'
+                                    scaleType: 'log',
+                                    title: 'nieuw per dag'
                                 },
                                 title: 'Corona cijfers van het RIVM',
-                                legend: {position: "bottom"},
+                                legend: {position: "none"},
                             }}
                             width="100%"
                             height={400}
@@ -73,25 +70,28 @@ function App() {
                     <Row>
                         <Chart
                             chartType="LineChart"
+                            loader={<div>Loading Chart</div>}
                             spreadSheetUrl="https://docs.google.com/spreadsheets/d/1SNQfSo6Ia8icq_YbXrjC4JO8p-Qlr1Dvqzfjgbrnpqk/edit?usp=sharing"
-                            spreadSheetQueryParameters={{
-                                headers: 1,
-                                query: 'SELECT D, C',
-                            }}
+                            formatters={[
+                                {
+                                    type: 'DateFormat',
+                                    column: 1,
+                                    options: {
+                                        formatType: 'long',
+                                    }
+                                },
+                            ]}
                             options={{
                                 curveType: "function",
                                 hAxis: {
-                                    format: 'decimal',
-                                    scaleType: 'log',
-                                    title: 'totaal'
+                                    format: 'dd-MMM',
                                 },
                                 vAxis: {
                                     format: 'decimal',
-                                    scaleType: 'log',
-                                    title: 'nieuw per dag'
+                                    title: 'aantal'
                                 },
                                 title: 'Corona cijfers van het RIVM',
-                                legend: {position: "none"},
+                                legend: {position: "bottom"},
                             }}
                             width="100%"
                             height={400}
