@@ -33,7 +33,7 @@ function App() {
                                 legend: {position: "none"},
                             }}
                             width="100%"
-                            height={400}
+                            height={600}
                         />
                     </Row>
                     <Row>
@@ -62,36 +62,7 @@ function App() {
                                 legend: {position: "bottom"},
                             }}
                             width="100%"
-                            height={400}
-                        />
-                    </Row>
-                    <Row>
-                        <Chart
-                            chartType="LineChart"
-                            loader={<div>Loading Chart</div>}
-                            spreadSheetUrl="https://docs.google.com/spreadsheets/d/1SNQfSo6Ia8icq_YbXrjC4JO8p-Qlr1Dvqzfjgbrnpqk/edit?usp=sharing"
-                            formatters={[
-                                {
-                                    type: 'DateFormat',
-                                    column: 1,
-                                    options: {
-                                        formatType: 'long',
-                                    }
-                                },
-                            ]}
-                            options={{
-                                curveType: "function",
-                                hAxis: {
-                                    format: 'dd-MMM',
-                                },
-                                vAxis: {
-                                    format: 'decimal',
-                                },
-                                title: 'Corona cijfers van het RIVM',
-                                legend: {position: "bottom"},
-                            }}
-                            width="100%"
-                            height={400}
+                            height={600}
                         />
                     </Row>
                     <Row>
