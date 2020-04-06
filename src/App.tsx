@@ -23,12 +23,11 @@ function App() {
                                 hAxis: {
                                     format: 'decimal',
                                     scaleType: 'log',
-                                    title: 'totaal'
+                                    title: 'nieuwe infecties per dag'
                                 },
                                 vAxis: {
                                     format: 'decimal',
                                     scaleType: 'log',
-                                    title: 'nieuw per dag'
                                 },
                                 title: 'Corona cijfers van het RIVM',
                                 legend: {position: "none"},
@@ -57,8 +56,7 @@ function App() {
                                 },
                                 vAxis: {
                                     format: 'decimal',
-                                    scaleType: 'log',
-                                    title: 'aantal'
+                                    scaleType: 'log'
                                 },
                                 title: 'Corona cijfers van het RIVM',
                                 legend: {position: "bottom"},
@@ -88,7 +86,6 @@ function App() {
                                 },
                                 vAxis: {
                                     format: 'decimal',
-                                    title: 'aantal'
                                 },
                                 title: 'Corona cijfers van het RIVM',
                                 legend: {position: "bottom"},
