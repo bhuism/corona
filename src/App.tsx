@@ -16,30 +16,8 @@ function App() {
                             spreadSheetUrl="https://docs.google.com/spreadsheets/d/1SNQfSo6Ia8icq_YbXrjC4JO8p-Qlr1Dvqzfjgbrnpqk/edit?usp=sharing"
                             spreadSheetQueryParameters={{
                                 headers: 1,
-                                query: 'SELECT D, C',
+                                query: 'SELECT A, C, B',
                             }}
-                            options={{
-                                curveType: "function",
-                                hAxis: {
-                                    format: 'decimal',
-                                    scaleType: 'log',
-                                    title: 'nieuwe infecties per dag'
-                                },
-                                vAxis: {
-                                    format: 'decimal',
-                                    scaleType: 'log',
-                                },
-                                title: 'Corona cijfers van het RIVM',
-                                legend: {position: "none"},
-                            }}
-                            width="100%"
-                            height={600}
-                        />
-                    </Row>
-                    <Row>
-                        <Chart
-                            chartType="LineChart"
-                            spreadSheetUrl="https://docs.google.com/spreadsheets/d/1SNQfSo6Ia8icq_YbXrjC4JO8p-Qlr1Dvqzfjgbrnpqk/edit?usp=sharing"
                             formatters={[
                                 {
                                     type: 'DateFormat',
@@ -56,13 +34,12 @@ function App() {
                                 },
                                 vAxis: {
                                     format: 'decimal',
-                                    scaleType: 'log'
                                 },
                                 title: 'Corona cijfers van het RIVM',
                                 legend: {position: "bottom"},
                             }}
                             width="100%"
-                            height={600}
+                            height={800}
                         />
                     </Row>
                     <Row>
