@@ -16,7 +16,7 @@ function App() {
                             spreadSheetUrl="https://docs.google.com/spreadsheets/d/1SNQfSo6Ia8icq_YbXrjC4JO8p-Qlr1Dvqzfjgbrnpqk/edit?usp=sharing"
                             spreadSheetQueryParameters={{
                                 headers: 1,
-                                query: 'SELECT A, C, B',
+                                query: 'SELECT A, B',
                             }}
                             formatters={[
                                 {
